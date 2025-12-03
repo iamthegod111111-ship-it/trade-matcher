@@ -201,8 +201,35 @@ def print_match_summary(matches):
 
 @app.route("/")
 def index():
-    # Make sure to create templates/index.html as previous instructions show.
-    return render_template("index.html")
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Trade Matcher</title>
+    </head>
+    <body>
+        <h1>Trade Matcher</h1>
+        <form action="/process" method="POST" enctype="multipart/form-data">
+            <label>Upload CSV:</label>
+            <input type="file" name="file" required><br><br>
+
+            <label>Select Strategy:</label>
+            <select name="strategy">
+                <option value="1">Max Profit</option>
+                <option value="2">Max Loss</option>
+                <option value="3">Max Short-Term Profit</option>
+                <option value="4">Max Long-Term Profit</option>
+                <option value="5">Max Short-Term Loss</option>
+                <option value="6">Max Long-Term Loss</option>
+                <option value="7">Minimize Loss (Near 0)</option>
+            </select><br><br>
+
+            <button type="submit">Process</button>
+        </form>
+    </body>
+    </html>
+    """
 
 
 def load_orders_from_stream(stream):
