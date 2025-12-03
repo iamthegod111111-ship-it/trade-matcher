@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trade Matcher</title>
+</head>
+<body>
+    <h2>Upload CSV & Choose Strategy</h2>
+
+    <form action="/process" method="post" enctype="multipart/form-data">
+        <label>Upload CSV:</label>
+        <input type="file" name="file" required><br><br>
+
+        <label>Select Strategy:</label>
+        <select name="strategy">
+            <option value="1">最大化利润</option>
+            <option value="2">最大化亏损</option>
+            <option value="3">最大化短期利润</option>
+            <option value="4">最大化长期利润</option>
+            <option value="5">最大化短期亏损</option>
+            <option value="6">最大化长期亏损</option>
+            <option value="7">最小化亏损（靠近0）</option>
+        </select><br><br>
+
+        <button type="submit">Process</button>
+    </form>
+
+    <p>After processing, a CSV file will download automatically.</p>
+</body>
+</html>
